@@ -25,16 +25,17 @@ import { useState } from "react";
 
 // --- Components ---
 
-const Logo = ({ className = "h-16" }: { className?: string }) => (
-  <div className={`flex items-center justify-center ${className}`}>
-    <img 
-      src="/logo.png" 
-      alt="Fluxa • Opera" 
-      className="h-full w-auto object-contain"
-      referrerPolicy="no-referrer"
-    />
-  </div>
-);
+const Logo = ({ className = "h-16" }: { className?: string }) => {
+  return (
+    <div className={`flex items-center ${className}`}>
+      <img 
+        src="/logo.png?v=2026" 
+        alt="Fluxa Opera" 
+        className="h-full w-auto object-contain block"
+      />
+    </div>
+  );
+};
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,12 +43,15 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-zinc-200">
       <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-        <Logo className="h-12" />
+        <Logo className="h-16" />
         
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-600">
           <a href="#dolor" className="hover:text-brand-accent transition-colors">El Problema</a>
           <a href="#solucion" className="hover:text-brand-accent transition-colors">La Solución</a>
-          <a href="#mecanismo" className="hover:text-brand-accent transition-colors">Metodología</a>
+          <a href="#mecanismo" className="hover:text-brand-accent transition-colors flex items-center gap-1.5">
+            Metodología
+            <span className="bg-brand-accent/10 text-brand-accent text-[10px] px-1.5 py-0.5 rounded-full font-bold">NUEVO</span>
+          </a>
           <a href="#faq" className="hover:text-brand-accent transition-colors">Preguntas</a>
         </div>
 
@@ -83,7 +87,8 @@ const Navbar = () => {
 const Hero = () => {
   return (
     <section className="relative pt-32 pb-20 overflow-hidden bg-white">
-      <div className="section-padding grid lg:grid-cols-2 gap-12 items-center">
+      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-30" />
+      <div className="section-padding grid lg:grid-cols-2 gap-12 items-center relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -91,7 +96,7 @@ const Hero = () => {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-brand-accent text-xs font-bold mb-6 tracking-wide">
             <Sparkles size={14} />
-            AUDITORÍA ESTRATÉGICA 2024
+            AUDITORÍA ESTRATÉGICA 2026
           </div>
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-brand-primary mb-6 leading-[1.1] text-balance">
             ¿Cuánto beneficio estás perdiendo en el trayecto de vuelta?
@@ -296,12 +301,12 @@ const MechanismSection = () => {
              <span className="bg-white px-2 py-1 rounded-full border border-zinc-200 mr-2">TECH</span>
              IA PREDICTIVA PROPIA
           </div>
-          <h2 className="text-4xl font-extrabold tracking-tight mb-6">Por qué un Excel no es suficiente.</h2>
+          <h2 className="text-4xl font-extrabold tracking-tight mb-6">Tu logística inversa ha evolucionado. Tu Excel no.</h2>
           <p className="text-lg text-zinc-600 leading-relaxed mb-8">
-            Nuestra agencia no solo mira el pasado. Usamos una capa de <span className="text-brand-primary font-bold underline decoration-brand-accent/30 underline-offset-4">IA Predictiva</span> para cruzar tus datos de ventas con el comportamiento histórico de devolución.
+            Las hojas de cálculo son herramientas de registro, no de estrategia. Mientras un Excel es una fotografía estática del ayer, nuestra <span className="text-brand-primary font-bold underline decoration-brand-accent/30 underline-offset-4">IA Predictiva</span> es un motor de simulación en tiempo real que anticipa las devoluciones antes de que el cliente las solicite.
           </p>
           <p className="text-lg text-zinc-600 leading-relaxed">
-            Proyectamos cuánto podrías ahorrar el próximo trimestre si aplicas tecnología de economía circular y calificación automatizada. Convertimos datos muertos en decisiones financieras.
+            Hemos convertido el caos de las devoluciones en una ventana de rentabilidad. Optimizamos rutas, predecimos depreciación de inventario y automatizamos la logística circular con una precisión que las celdas estáticas simplemente no pueden procesar.
           </p>
         </div>
         <div className="order-1 lg:order-2 grid grid-cols-2 gap-4">
@@ -449,7 +454,7 @@ const Footer = () => (
         <a href="#" className="hover:text-brand-primary transition-colors">Privacidad</a>
         <a href="#" className="hover:text-brand-primary transition-colors">LinkedIn</a>
       </div>
-      <p className="text-sm text-zinc-400">&copy; 2024 Fluxa • Opera Agency. Profitable Circularity.</p>
+      <p className="text-sm text-zinc-400">&copy; 2026 Fluxa • Opera Agency. Profitable Circularity.</p>
     </div>
   </footer>
 );
